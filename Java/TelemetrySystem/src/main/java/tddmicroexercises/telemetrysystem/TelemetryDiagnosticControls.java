@@ -1,6 +1,6 @@
 package tddmicroexercises.telemetrysystem;
 
-public class TelemetryDiagnosticControls {
+public class TelemetryDiagnosticControls implements DiagnosticControls {
     public static final String DIAGNOSTIC_MESSAGE = "hello";
 
     private static final String DiagnosticChannelConnectionString = "*111#";
@@ -12,14 +12,17 @@ public class TelemetryDiagnosticControls {
         this.telemetryClient = telemetryClient;
     }
 
+    @Override
     public String getDiagnosticInfo() {
         return diagnosticInfo;
     }
 
+    @Override
     public void setDiagnosticInfo(String diagnosticInfo) {
         this.diagnosticInfo = diagnosticInfo;
     }
 
+    @Override
     public void checkTransmission() throws Exception {
         diagnosticInfo = "";
 
